@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mcrcon-ipv6"
-version = "0.1.1"
+version = "0.1.2"
 description = "mcrcon with IPv6 support"
 authors = ["firesquare <team@firesquare.ru>"]
 readme = "README.md"
