@@ -43,10 +43,13 @@ class MCRcon(object):
     socket = None
 
     def __init__(self, host, password, port=25575, tlsmode=0, timeout=5):
-        if isinstance(ipaddress.ip_address(host), ipaddress.IPv4Address):
+        try:
+            if isinstance(ipaddress.ip_address(host), ipaddress.IPv4Address):
+                self.sockettype = socket.AF_INET
+            else:
+                self.sockettype = socket.AF_INET6
+        except ValueError:
             self.sockettype = socket.AF_INET
-        else:
-            self.sockettype = socket.AF_INET6
 
         self.host = host
         self.password = password
